@@ -1,0 +1,21 @@
+<RCC>
+  <qresource prefix="icons/small" >
+    <file>control_end_blue.png</file>
+    <file>control_fastforward_blue.png</file>
+    <file>control_pause_blue.png</file>
+    <file>control_play_blue.png</file>
+    <file>control_repeat_blue.png</file>
+    <file>control_rewind_blue.png</file>
+    <file>control_start_blue.png</file>
+    <file>control_stop_blue.png</file>
+    <file>grid.png</file>
+    <file>bounding_box2.png</file>
+    <file>skeleton.png</file>
+    <file>shape_group.png</file>
+    <file>cog.png</file>
+    <file>folder_page.png</file>
+  </qresource>
+  <qresource prefix="icons/application" >
+    <file>mv.png</file>
+  </qresource>
+</RCC>

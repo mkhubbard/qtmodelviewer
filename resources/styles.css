@@ -1,0 +1,59 @@
+QMenuBar {
+    background-color: #d6d6d6;
+    padding: 2px;
+    border: 1px solid #bbbbbb;
+	border-top-color: #e6e6e6;
+	border-left-color: #e6e6e6;
+	border-right-color: #e6e6e6;  
+ }
+
+ QMenuBar::item {
+     spacing: 5px; /* spacing between menu bar items */
+     background: transparent;
+    /* border-radius: 2px;*/
+     padding: 4px;
+     padding-left: 6px;
+     padding-right: 6px;
+     margin-right: 4px;
+ }
+
+ QMenuBar::item:selected { 
+    background: #999999;
+	border: 1px solid #666666;
+    border-radius: 3px;
+ }
+
+
+QMenuBar::item:pressed {
+     background: #999999;
+     border: 1px solid #666666;
+	 border-top-left-radius: 3px;
+	 border-top-right-radius: 3px;
+     color: #e5e5e5;
+ }
+
+ QToolBar {
+     background: #d6d6d6;
+     spacing: 3px;
+	 padding-left: 2px;
+     border: 1px solid #bbbbbb;
+     border-top-color: #e6e6e6;
+     border-left-color: #e6e6e6;
+}
+
+QToolButton { /* all types of tool button */
+     background-color: #d6d6d6;
+    border: 1px solid  #d6d6d6;
+}
+
+QToolButton:hover {
+    background: #e6e6e6;
+    border: 1px outset #bbbbbb;
+    border-radius: 3px;
+}
+
+QToolButton:pressed, QToolButton:checked {
+    border: 1px inset #bbbbbb;
+    border-radius: 3px;
+   background-color: #e6e6e6;
+}

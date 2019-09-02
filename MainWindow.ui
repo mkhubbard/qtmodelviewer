@@ -1,0 +1,445 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindowClass</class>
+ <widget class="QMainWindow" name="MainWindowClass">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>696</width>
+    <height>400</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>:/icons/application/mv.png</normaloff>:/icons/application/mv.png</iconset>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
+  <property name="toolButtonStyle">
+   <enum>Qt::ToolButtonIconOnly</enum>
+  </property>
+  <property name="dockOptions">
+   <set>QMainWindow::AllowTabbedDocks|QMainWindow::AnimatedDocks</set>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QVBoxLayout" name="verticalLayout_2">
+    <property name="margin">
+     <number>0</number>
+    </property>
+    <item>
+     <widget class="OgreRenderWindow" name="ogreWindow" native="true">
+      <widget class="QToolButton" name="polyMode">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>10</y>
+         <width>80</width>
+         <height>30</height>
+        </rect>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>80</width>
+         <height>29</height>
+        </size>
+       </property>
+       <property name="toolTip">
+        <string>Cycle rendering modes.</string>
+       </property>
+       <property name="statusTip">
+        <string>Cycle rendering modes.</string>
+       </property>
+       <property name="styleSheet">
+        <string>  QToolButton::menu-button:hover {
+         border: 1px outset #bbbbbb;
+         border-top-right-radius: 3px;
+         border-bottom-right-radius: 3px;
+         /* 16px width + 4px for border = 20px allocated above */
+         width: 10px;
+}</string>
+       </property>
+       <property name="text">
+        <string>Texture</string>
+       </property>
+       <property name="popupMode">
+        <enum>QToolButton::InstantPopup</enum>
+       </property>
+       <property name="toolButtonStyle">
+        <enum>Qt::ToolButtonIconOnly</enum>
+       </property>
+       <property name="arrowType">
+        <enum>Qt::NoArrow</enum>
+       </property>
+      </widget>
+      <widget class="AnimationFrame" name="animControls">
+       <property name="geometry">
+        <rect>
+         <x>100</x>
+         <y>20</y>
+         <width>120</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>696</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string/>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>&amp;File</string>
+    </property>
+    <addaction name="actionOpenMesh"/>
+    <addaction name="actionCloseMesh"/>
+    <addaction name="separator"/>
+    <addaction name="actionQuit"/>
+   </widget>
+   <widget class="QMenu" name="menuSettings">
+    <property name="title">
+     <string>&amp;Settings</string>
+    </property>
+    <addaction name="actionPreferences"/>
+   </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>&amp;Help</string>
+    </property>
+    <addaction name="actionAbout"/>
+   </widget>
+   <widget class="QMenu" name="menuView">
+    <property name="title">
+     <string>&amp;View</string>
+    </property>
+    <addaction name="actionGrid"/>
+    <addaction name="separator"/>
+    <addaction name="actionBoundingBox"/>
+    <addaction name="actionSkeleton"/>
+    <addaction name="actionRenderMode"/>
+    <addaction name="separator"/>
+    <addaction name="actionInspector"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuView"/>
+   <addaction name="menuSettings"/>
+   <addaction name="menuHelp"/>
+  </widget>
+  <widget class="QToolBar" name="viewToolBar">
+   <property name="styleSheet">
+    <string/>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionGrid"/>
+   <addaction name="actionBoundingBox"/>
+   <addaction name="actionSkeleton"/>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+  <widget class="QToolBar" name="tbAnimation">
+   <property name="windowTitle">
+    <string>Animation Controls</string>
+   </property>
+   <property name="allowedAreas">
+    <set>Qt::BottomToolBarArea|Qt::TopToolBarArea</set>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+  </widget>
+  <widget class="QDockWidget" name="dockWidget">
+   <property name="floating">
+    <bool>false</bool>
+   </property>
+   <property name="features">
+    <set>QDockWidget::DockWidgetClosable|QDockWidget::DockWidgetMovable</set>
+   </property>
+   <property name="allowedAreas">
+    <set>Qt::AllDockWidgetAreas</set>
+   </property>
+   <property name="windowTitle">
+    <string>Inspector</string>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>1</number>
+   </attribute>
+   <widget class="QWidget" name="dockWidgetContents">
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <property name="margin">
+      <number>0</number>
+     </property>
+     <item>
+      <widget class="QTreeWidget" name="treeWidget">
+       <property name="rootIsDecorated">
+        <bool>true</bool>
+       </property>
+       <property name="uniformRowHeights">
+        <bool>true</bool>
+       </property>
+       <column>
+        <property name="text">
+         <string>Property</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Value</string>
+        </property>
+       </column>
+       <item>
+        <property name="text">
+         <string>Test</string>
+        </property>
+        <property name="text">
+         <string>Test</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Test</string>
+        </property>
+        <property name="background">
+         <brush brushstyle="NoBrush">
+          <color alpha="255">
+           <red>170</red>
+           <green>170</green>
+           <blue>127</blue>
+          </color>
+         </brush>
+        </property>
+        <property name="text">
+         <string>Test</string>
+        </property>
+        <property name="background">
+         <brush brushstyle="NoBrush">
+          <color alpha="255">
+           <red>170</red>
+           <green>170</green>
+           <blue>127</blue>
+          </color>
+         </brush>
+        </property>
+        <property name="flags">
+         <set>ItemIsDragEnabled|ItemIsUserCheckable|ItemIsEnabled</set>
+        </property>
+        <item>
+         <property name="text">
+          <string>More</string>
+         </property>
+         <property name="text">
+          <string>More</string>
+         </property>
+        </item>
+       </item>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <action name="actionQuit">
+   <property name="text">
+    <string>Quit</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Q</string>
+   </property>
+  </action>
+  <action name="actionOpenMesh">
+   <property name="icon">
+    <iconset>
+     <normaloff>:/icons/small/folder_page.png</normaloff>:/icons/small/folder_page.png</iconset>
+   </property>
+   <property name="text">
+    <string>Open Mesh</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+O</string>
+   </property>
+  </action>
+  <action name="actionCloseMesh">
+   <property name="text">
+    <string>Close Mesh</string>
+   </property>
+  </action>
+  <action name="actionPreferences">
+   <property name="icon">
+    <iconset>
+     <normaloff>:/icons/small/cog.png</normaloff>:/icons/small/cog.png</iconset>
+   </property>
+   <property name="text">
+    <string>Preferences</string>
+   </property>
+  </action>
+  <action name="actionAbout">
+   <property name="text">
+    <string>About</string>
+   </property>
+  </action>
+  <action name="actionInspector">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Inspector</string>
+   </property>
+  </action>
+  <action name="actionBoundingBox">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>:/icons/small/bounding_box2.png</normaloff>:/icons/small/bounding_box2.png</iconset>
+   </property>
+   <property name="text">
+    <string>Bounding Box</string>
+   </property>
+   <property name="toolTip">
+    <string>Toggle Bounding Box</string>
+   </property>
+   <property name="statusTip">
+    <string>Toggle display of the meshes bounding box.</string>
+   </property>
+  </action>
+  <action name="actionSkeleton">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>:/icons/small/skeleton.png</normaloff>:/icons/small/skeleton.png</iconset>
+   </property>
+   <property name="text">
+    <string>Skeleton</string>
+   </property>
+   <property name="toolTip">
+    <string>Toggle Skeleton</string>
+   </property>
+   <property name="statusTip">
+    <string>Toggle display of the meshes skeleton.</string>
+   </property>
+  </action>
+  <action name="actionTexture">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Texture</string>
+   </property>
+   <property name="toolTip">
+    <string>Render Textures</string>
+   </property>
+   <property name="statusTip">
+    <string>Render the mesh with textures.</string>
+   </property>
+  </action>
+  <action name="actionWireframe">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Wireframe</string>
+   </property>
+   <property name="toolTip">
+    <string>Render Wireframe</string>
+   </property>
+   <property name="statusTip">
+    <string>Render the mesh as wireframe.</string>
+   </property>
+  </action>
+  <action name="actionPoints">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Points</string>
+   </property>
+   <property name="toolTip">
+    <string>Render Points</string>
+   </property>
+   <property name="statusTip">
+    <string>Render the mesh as points.</string>
+   </property>
+  </action>
+  <action name="actionRenderMode">
+   <property name="text">
+    <string>Render Mode</string>
+   </property>
+   <property name="statusTip">
+    <string>Change the rendering mode.</string>
+   </property>
+  </action>
+  <action name="actionGrid">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>:/icons/small/grid.png</normaloff>:/icons/small/grid.png</iconset>
+   </property>
+   <property name="text">
+    <string>Grid</string>
+   </property>
+   <property name="toolTip">
+    <string>Toggle Grid</string>
+   </property>
+   <property name="statusTip">
+    <string>Show or hide the ground plane grid.</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>OgreRenderWindow</class>
+   <extends>QWidget</extends>
+   <header>ogrerenderwindow.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>AnimationFrame</class>
+   <extends>QFrame</extends>
+   <header>AnimationFrame.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>
